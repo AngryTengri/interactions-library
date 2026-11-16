@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image swap</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main>
+    <!-- The picture sits inside a button, so it can be clicked, tapped
+         or reached with the Tab key. -->
+    <button id="next" aria-label="Show the next picture">
+      <!-- CHANGE THIS: src is the first picture, the same file as the first
+           line of the list in the JavaScript.
+           alt describes the picture for people who cannot see it. -->
+      <img id="picture" src="assets/picture-1.svg" alt="Placeholder picture">
+    </button>
+
+    <!-- A small counter. It is empty here: the JavaScript fills it in. -->
+    <p id="count"></p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

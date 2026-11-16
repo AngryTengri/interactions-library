@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sound</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main>
+    <button id="bell-button">Ring the bell</button>
+    <button id="hum-button">Start the hum</button>
+  </main>
+
+  <!-- The sounds. An audio element is invisible unless you ask for controls.
+       CHANGE THIS: src is the sound file. Use your own recordings, saved as mp3.
+       "loop" makes a sound start again when it reaches the end. -->
+  <audio id="bell" src="assets/bell.mp3"></audio>
+  <audio id="hum" src="assets/hum.mp3" loop></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

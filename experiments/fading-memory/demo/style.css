@@ -1,0 +1,65 @@
+/* --fade is a number the JavaScript keeps up to date:
+   0 is a fresh page, 1 would be completely gone. */
+:root {
+  --fade: 0;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;  /* CHANGE THIS: your font */
+  background: #f5f3ee;
+  color: #1d1d1d;
+}
+
+main {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+#picture {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  /* The picture loses its colour, its sharpness and its strength as --fade grows.
+     CHANGE THIS: the numbers, or the kinds of filter. */
+  filter: grayscale(var(--fade)) blur(calc(var(--fade) * 8px));
+  opacity: calc(1 - var(--fade) * 0.8);
+  transition: filter 3s, opacity 3s;  /* changes arrive slowly */
+}
+
+#text {
+  font-size: 1.375rem;
+  line-height: 1.6;
+}
+
+/* Every word is wrapped in its own span by the JavaScript, with the class "word". */
+.word {
+  opacity: calc(1 - var(--fade));
+  filter: blur(calc(var(--fade) * 5px));
+  transition: opacity 3s, filter 3s;  /* fading is slow */
+}
+
+/* A word under the pointer comes back, quickly.
+   When the pointer leaves, it fades away again slowly. */
+.word:hover {
+  opacity: 1;
+  filter: none;
+  transition-duration: 0.2s;
+}
+
+.small {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+#forget {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}

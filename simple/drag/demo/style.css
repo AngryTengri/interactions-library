@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;  /* no scroll bars when a piece is dragged off the edge */
+  font-family: Georgia, serif;  /* CHANGE THIS: your font */
+  background: #f1ece4;
+  color: #1d1d1d;
+}
+
+.hint {
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+.piece {
+  /* absolute = placed by its left and top numbers, not by the flow of the page.
+     This is what lets the JavaScript put it anywhere. */
+  position: absolute;
+  width: 150px;  /* CHANGE THIS: the size of the pieces */
+  height: auto;
+  cursor: grab;
+
+  /* On a phone, dragging a finger normally scrolls the page.
+     This says: on a piece, do not scroll, let the JavaScript handle the finger. */
+  touch-action: none;
+  user-select: none;  /* dragging should not select things */
+  -webkit-user-select: none;  /* the same, for Safari */
+  -webkit-touch-callout: none;  /* iPhone: no "save image" menu on a long press */
+}
+
+/* How a piece looks while it is held. The JavaScript adds and removes this class.
+   CHANGE THIS. */
+.piece.held {
+  cursor: grabbing;
+  transform: scale(1.06) rotate(-3deg);
+  filter: drop-shadow(0 12px 10px rgba(0, 0, 0, 0.3));
+}

@@ -1,0 +1,372 @@
+/*
+  Styles for the library itself: the gallery and the playground pages.
+  The interactions in each demo/ folder have their own style.css and do not use this file.
+
+  The look: a green cutting mat, with sheets of paper laid on it.
+  HTML, CSS and JavaScript each keep one colour everywhere on the site.
+*/
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('vendor/bricolage-grotesque.woff2') format('woff2');
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+:root {
+  --mat: #17594a;
+  --mat-deep: #0f4135;
+  --mat-line: rgba(255, 255, 255, 0.06);
+  --mat-line-strong: rgba(255, 255, 255, 0.11);
+  --on-mat: #e4f1ea;
+  --paper: #f6f7f4;
+  --ink: #15211d;
+  --muted: #4d5c56;
+  --rule: #d5dad4;
+  --html: #ffc940;
+  --css: #ff9bb0;
+  --js: #8ccbff;
+  --warn: #b3261e;
+  --sans: 'Bricolage Grotesque', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+  --mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  --shadow: 0 1px 0 rgba(0, 0, 0, 0.25), 0 10px 22px -10px rgba(0, 0, 0, 0.5);
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: var(--on-mat);
+  background-color: var(--mat);
+  background-image:
+    linear-gradient(var(--mat-line-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--mat-line-strong) 1px, transparent 1px),
+    linear-gradient(var(--mat-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--mat-line) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+}
+
+a { color: inherit; }
+h1, h2, p, ul, blockquote { margin: 0; }
+button { font: inherit; color: inherit; cursor: pointer; }
+
+:focus-visible {
+  outline: 3px solid var(--html);
+  outline-offset: 2px;
+}
+
+/* On paper the yellow ring is too faint, so it turns dark there. */
+.sheet :focus-visible { outline-color: var(--ink); }
+
+.offscreen { position: fixed; left: -999px; top: 0; }
+
+/* ---------- Header ---------- */
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 2rem;
+  padding: 0.75rem clamp(1rem, 4vw, 3rem);
+  background: var(--mat-deep);
+}
+
+.wordmark {
+  font-weight: 700;
+  font-size: 1.125rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.site-header nav { display: flex; gap: 0.25rem; }
+
+.site-header nav a {
+  padding: 0.2rem 0.75rem;
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+.site-header nav a:hover { background: rgba(255, 255, 255, 0.1); }
+.site-header nav a[aria-current] { background: var(--paper); color: var(--ink); }
+
+/* ---------- Gallery ---------- */
+
+.gallery {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 7vw, 5.5rem) clamp(1rem, 4vw, 3rem) 5rem;
+}
+
+.gallery h1 {
+  font-size: clamp(2.75rem, 9vw, 6.5rem);
+  font-weight: 750;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+}
+
+.intro {
+  max-width: 38rem;
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.45;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.tab {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  padding: 0.55rem 1.1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  background: transparent;
+  border: 2px solid var(--on-mat);
+  border-radius: 2px;
+}
+
+.tab .count { font-size: 0.875rem; font-weight: 400; opacity: 0.8; }
+.tab:hover { background: rgba(255, 255, 255, 0.1); }
+.tab[aria-selected='true'] { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+
+.tab-about { max-width: 38rem; margin-top: 1rem; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17.5rem, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem 1.25rem 1.1rem;
+  color: var(--ink);
+  background: var(--paper);
+  border-radius: 2px;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  transition: transform 0.15s ease-out;
+}
+
+.card:hover { transform: translateY(-3px) rotate(-0.4deg); }
+.card h2 { font-size: 1.625rem; font-weight: 650; line-height: 1.1; letter-spacing: -0.02em; }
+.card .summary { color: var(--muted); font-size: 1rem; }
+.question { font-style: italic; }
+
+.terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding: 0.6rem 0 0;
+  list-style: none;
+}
+
+.terms li {
+  padding: 0.05rem 0.4rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+
+/* ---------- Playground ---------- */
+
+.play {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem clamp(1rem, 3vw, 2rem) 4rem;
+}
+
+.play-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.play-head h1 {
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.play-head .summary { max-width: 62rem; margin-top: 0.35rem; }
+.actions { display: flex; gap: 0.5rem; }
+
+/* The result and the three code panes share one screen: result on top, code below. */
+.workspace {
+  display: grid;
+  grid-template-rows: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 1rem;
+  height: calc(100vh - 11rem);
+  min-height: 34rem;
+}
+
+.result,
+.pane {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  padding: 0.4rem 0.9rem;
+  font-size: 1rem;
+  background: transparent;
+  border: 2px solid var(--on-mat);
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+.button:hover { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+
+.sheet {
+  min-width: 0;
+  color: var(--ink);
+  background: var(--paper);
+  border-radius: 2px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 2.5rem;
+  padding: 0.3rem 0.5rem 0.3rem 0.85rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.bar-title { font-weight: 700; }
+.bar-note { margin-right: auto; font-size: 0.875rem; color: var(--muted); }
+.pane .bar-note { color: inherit; opacity: 0.8; }
+
+.bar-button {
+  padding: 0.15rem 0.6rem;
+  font-size: 0.875rem;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(21, 33, 29, 0.45);
+  border-radius: 2px;
+}
+
+.bar-button:hover { background: #ffffff; }
+
+.pane-html .bar { background: var(--html); border-color: transparent; }
+.pane-css .bar { background: var(--css); border-color: transparent; }
+.pane-js .bar { background: var(--js); border-color: transparent; }
+
+.frame-holder { flex: 1; min-height: 0; background: #ffffff; }
+.frame-holder iframe { display: block; width: 100%; height: 100%; border: 0; }
+.load-error { padding: 2rem; max-width: 40rem; }
+
+.result-error {
+  padding: 0.5rem 0.85rem;
+  font-size: 0.9375rem;
+  color: #ffffff;
+  background: var(--warn);
+}
+
+.editors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.editor { flex: 1; min-height: 0; }
+
+.editor textarea {
+  width: 100%;
+  height: 100%;
+  padding: 0.75rem;
+  font: 0.8125rem/1.6 var(--mono);
+  color: var(--ink);
+  background: #ffffff;
+  border: 0;
+  resize: none;
+}
+
+/* The code editor (CodeMirror) and its colours. Comments are the teaching text, so they stay dark. */
+.CodeMirror {
+  height: 100%;
+  font: 0.8125rem/1.6 var(--mono);
+  color: var(--ink);
+  background: #ffffff;
+}
+
+.cm-s-library .CodeMirror-gutters { background: #ffffff; border-right: 1px solid var(--rule); }
+.cm-s-library .CodeMirror-linenumber { color: #8a958f; }
+.cm-s-library .CodeMirror-cursor { border-left: 2px solid var(--ink); }
+.cm-s-library .CodeMirror-selected { background: #d9e8ff; }
+.cm-s-library .cm-comment { color: #17654f; }
+.cm-s-library .cm-keyword { color: #7a2fb5; }
+.cm-s-library .cm-string, .cm-s-library .cm-string-2 { color: #a23a1c; }
+.cm-s-library .cm-number, .cm-s-library .cm-atom { color: #8a5200; }
+.cm-s-library .cm-tag { color: #0a5aa8; }
+.cm-s-library .cm-attribute, .cm-s-library .cm-qualifier { color: #7a2fb5; }
+.cm-s-library .cm-property, .cm-s-library .cm-def { color: #0a5aa8; }
+.cm-s-library .cm-builtin { color: #a23a1c; }
+
+.notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.note { padding: 1.1rem 1.25rem 1.25rem; }
+.note h2 { margin-bottom: 0.6rem; font-size: 1.25rem; font-weight: 650; letter-spacing: -0.01em; }
+.note ul { padding-left: 1.1rem; }
+.note li + li { margin-top: 0.35rem; }
+.note .small { margin-top: 0.75rem; font-size: 0.9375rem; color: var(--muted); }
+.note h2 + .small { margin-top: 0; }
+
+.note blockquote {
+  margin: 0.75rem 0;
+  padding: 0.75rem 0.9rem;
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  background: #ffffff;
+  border-left: 4px solid var(--js);
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.pager a { font-size: 1.25rem; font-weight: 600; text-decoration: none; }
+.pager a:hover { text-decoration: underline; }
+.pager a span { display: block; font-size: 0.875rem; font-weight: 400; opacity: 0.8; }
+.pager .next { text-align: right; }
+
+/* Narrow screens: everything stacks, and each part gets a fixed height. */
+@media (max-width: 900px) {
+  .workspace { display: block; height: auto; min-height: 0; }
+  .editors { grid-template-columns: 1fr; margin-top: 1rem; }
+  .editor { flex: none; height: 320px; }
+  .frame-holder { flex: none; height: 60vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+  .card:hover { transform: none; }
+}

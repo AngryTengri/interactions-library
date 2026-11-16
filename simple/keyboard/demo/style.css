@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;  /* no scroll bars */
+  font-family: Georgia, serif;  /* CHANGE THIS: your font */
+  background: #e9f5db;
+  color: #1d1d1d;
+}
+
+main {
+  padding: 1rem 1.5rem;
+}
+
+main p {
+  margin: 0 0 0.5rem;
+}
+
+#walker {
+  /* absolute = placed by left and top, which the JavaScript changes. */
+  position: absolute;
+  left: 100px;  /* CHANGE THIS: where it starts */
+  top: 120px;
+  width: 50px;  /* CHANGE THIS: size */
+  height: 50px;
+  background: #386641;  /* CHANGE THIS: colour */
+
+  /* Each step glides for 0.1 seconds instead of jumping. */
+  transition: left 0.1s linear, top 0.1s linear;
+}

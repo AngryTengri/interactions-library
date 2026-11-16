@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  font-family: Georgia, serif;  /* CHANGE THIS: your font */
+  background: #2b2d42;
+  color: #edf2f4;
+}
+
+#room {
+  position: relative;  /* the door is placed inside the room */
+  height: 100vh;
+  overflow: hidden;
+}
+
+#hint,
+#caught {
+  margin: 0;
+  padding: 1.5rem;
+  font-size: 1.25rem;
+}
+
+#door {
+  /* absolute = placed by left and top. The JavaScript changes them to make it run. */
+  position: absolute;
+  left: 45%;
+  top: 45%;
+  padding: 0.6rem 1.4rem;
+  font-size: 1.5rem;
+  color: #2b2d42;
+  background: #ffd166;  /* CHANGE THIS */
+  text-decoration: none;
+
+  /* The run. --run-time is how long one run takes. The JavaScript sets it
+     before every run, a little longer each time, so the door looks more
+     and more tired. The colour change always takes 1 second. */
+  transition: left var(--run-time) ease-out, top var(--run-time) ease-out, background 1s;
+}
+
+/* Some people ask their computer for less movement.
+   For them the door jumps to its new place instead of sliding. */
+@media (prefers-reduced-motion: reduce) {
+  #door {
+    transition: background 1s;
+  }
+}
+
+/* The door when it has given up. The JavaScript adds this class. CHANGE THIS. */
+#door.tired {
+  background: #8d99ae;
+}
+
+/* Visible focus, for people who reach the door with the Tab key. */
+#door:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}

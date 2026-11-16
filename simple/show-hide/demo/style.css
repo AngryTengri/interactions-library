@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  font-family: Georgia, serif;  /* CHANGE THIS: your font */
+  background: #eef5ea;
+  color: #1d1d1d;
+}
+
+main {
+  max-width: 32rem;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  font-size: 1.75rem;
+}
+
+/* A title looks like a line of text, but it is a real button. */
+.title {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 0;
+  font: inherit;
+  font-size: 1.5rem;
+  text-align: left;
+  color: inherit;
+  background: none;
+  border: none;
+  border-top: 1px solid currentColor;
+  cursor: pointer;
+}
+
+/* A sign in front of each title shows what a click will do.
+   CHANGE THIS: the two signs. */
+.title::before {
+  content: '+ ';
+}
+.title[aria-expanded='true']::before {
+  content: '− ';  /* a minus sign */
+}
+
+.text {
+  margin: 0;
+  padding: 0 0 1.25rem 1.4rem;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}

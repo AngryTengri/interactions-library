@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sideways walk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- The track is very tall. Its only job is to give the page
+       something to scroll through. -->
+  <div id="track">
+
+    <!-- The view sticks to the screen while the track scrolls past behind it. -->
+    <div id="view">
+
+      <!-- The layers, from the furthest away to the nearest.
+           Each one is a wide picture. The wider the picture, the faster it moves.
+           CHANGE THIS: your own drawings. All layers except the first need a
+           transparent background (PNG).
+           min-width is the least a layer may measure, compared to the screen:
+           150vw is one and a half screens wide. A bigger number moves faster.
+           The first alt describes the whole scene. The others stay empty,
+           so a screen reader does not read it four times. -->
+      <img class="layer" src="assets/layer-1-sky.svg" style="min-width: 110vw;" alt="Placeholder street scene in four layers">
+      <img class="layer" src="assets/layer-2-far.svg" style="min-width: 150vw;" alt="">
+      <img class="layer" src="assets/layer-3-street.svg" style="min-width: 220vw;" alt="">
+      <img class="layer" src="assets/layer-4-front.svg" style="min-width: 320vw;" alt="">
+
+      <p class="hint">Scroll down to walk</p>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

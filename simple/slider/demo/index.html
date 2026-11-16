@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slider</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main>
+    <!-- CHANGE THIS: your own picture, and a description of it in alt. -->
+    <img id="picture" src="assets/picture.svg" alt="Placeholder picture">
+
+    <!-- The label names the slider. "for" links it to the slider's id.
+         CHANGE THIS: the word, if the slider controls something else. -->
+    <label for="slider">Blur: <span id="amount">12</span></label>
+
+    <!-- The slider.
+         CHANGE THIS: min is the left end, max is the right end,
+         value is where the handle starts. -->
+    <input type="range" id="slider" min="0" max="24" value="12">
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

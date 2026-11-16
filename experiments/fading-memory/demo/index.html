@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fading memory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main>
+    <!-- CHANGE THIS: your own picture, and its description in alt. -->
+    <img id="picture" src="assets/memory.svg" alt="Placeholder picture">
+
+    <!-- CHANGE THIS: your own writing. It needs a few sentences, so there are
+         enough words to fade. Keep it as one paragraph of plain words:
+         the JavaScript wraps every word separately and removes any tags inside. -->
+    <p id="text">
+      Placeholder text. Write a memory of your place here, a few sentences long.
+      Every word fades by itself. Each visit wears the page down a little more,
+      and so does sitting still. Touch a word and it comes back for a moment.
+    </p>
+
+    <!-- The visit counter, and a way to start again while you are testing. -->
+    <p class="small">
+      Visit number <span id="visit-number">1</span>.
+      <button id="forget">Start again</button>
+    </p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

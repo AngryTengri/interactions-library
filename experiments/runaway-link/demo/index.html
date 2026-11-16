@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Runaway link</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- The room is the area the link can run around in. -->
+  <main id="room">
+
+    <p id="hint">The way out is through the door.</p>
+
+    <!-- The link that runs away.
+         CHANGE THIS: the words, and the href. The href is where the link goes
+         once it is caught, for example href="room-2.html".
+         See the note at the end of the JavaScript. -->
+    <a id="door" href="#caught">Door</a>
+
+    <!-- Shown when the link is caught. -->
+    <p id="caught" hidden>Caught. It was too tired to run.</p>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drag</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <p class="hint">Pick up the pieces and move them.</p>
+
+  <!-- Each piece is an image with the class "piece".
+       left and top say where it starts, measured from the top left corner of the page.
+       draggable="false" switches off the browser's own image dragging, so ours can work.
+       CHANGE THIS: your own cut-out images (PNG files with transparent backgrounds),
+       their descriptions in alt, and where they start. Copy a line to add a piece. -->
+  <img class="piece" src="assets/piece-1.svg" alt="Placeholder piece 1" draggable="false" style="left: 8%; top: 25%;">
+  <img class="piece" src="assets/piece-2.svg" alt="Placeholder piece 2" draggable="false" style="left: 38%; top: 40%;">
+  <img class="piece" src="assets/piece-3.svg" alt="Placeholder piece 3" draggable="false" style="left: 65%; top: 20%;">
+
+  <script src="script.js"></script>
+</body>
+</html>

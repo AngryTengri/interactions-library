@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Show and hide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main>
+    <h1>Three things about this place</h1>
+
+    <!-- Each pair is a title (a button) followed directly by its hidden text.
+         "hidden" makes the browser not show the element.
+         aria-expanded tells screen readers whether it is open.
+         CHANGE THIS: the titles and the text. Copy a pair to add another. -->
+
+    <button class="title" aria-expanded="false">A sound</button>
+    <p class="text" hidden>Placeholder text. Write what you heard here.</p>
+
+    <button class="title" aria-expanded="false">A smell</button>
+    <p class="text" hidden>Placeholder text. Write what you smelled here.</p>
+
+    <button class="title" aria-expanded="false">A colour</button>
+    <p class="text" hidden>Placeholder text. Write what you saw here.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

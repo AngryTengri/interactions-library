@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: Georgia, serif;  /* CHANGE THIS: your font */
+  background: #1f1f1f;
+  color: #f1f1f1;
+}
+
+main {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+#stage {
+  width: min(90vw, 720px);  /* CHANGE THIS: how big the animation is shown */
+  cursor: ew-resize;  /* a left-right arrow: a hint about how to use it */
+
+  /* On a phone: a sideways drag scrubs the animation,
+     an up-down drag still scrolls the page. */
+  touch-action: pan-y;
+}
+
+#frame {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;  /* stops the browser's own image dragging from getting in the way */
+}

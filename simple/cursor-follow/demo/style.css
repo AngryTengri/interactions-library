@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: Georgia, serif;  /* CHANGE THIS: your font */
+  font-size: 1.5rem;
+  background: #fffbea;
+  color: #1d1d1d;
+  /* On a phone: a dragging finger moves the follower, not the page.
+     DELETE this line if your page is long and needs to scroll. */
+  touch-action: none;
+}
+
+main {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+#follower {
+  /* fixed at the top left corner of the screen.
+     The JavaScript then pushes it to the pointer with transform. */
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 70px;  /* CHANGE THIS: size */
+  height: 70px;
+  /* Pull it back by half its size, so its centre sits on the pointer, not its corner. */
+  margin: -35px 0 0 -35px;
+
+  border-radius: 50%;
+  background: #ff5d8f;  /* CHANGE THIS: colour */
+  mix-blend-mode: multiply;  /* lets the text show through the circle */
+
+  /* The delay. Each move takes 0.2 seconds, so the follower trails behind.
+     CHANGE THIS: 0s sticks to the pointer, 1s feels heavy and slow. */
+  transition: transform 0.2s ease-out;
+
+  /* The follower ignores clicks, so it never blocks what is underneath it. */
+  pointer-events: none;
+
+  /* Invisible until the pointer first moves. The JavaScript then shows it. */
+  opacity: 0;
+}

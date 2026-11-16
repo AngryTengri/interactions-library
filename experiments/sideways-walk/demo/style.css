@@ -1,0 +1,45 @@
+body {
+  margin: 0;
+  font-family: Georgia, serif;  /* CHANGE THIS: your font */
+}
+
+/* The length of the walk. 500vh is five screens of scrolling.
+   CHANGE THIS: a bigger number makes a longer, slower walk. */
+#track {
+  height: 500vh;
+}
+
+/* sticky = scrolls normally until it reaches the top of the screen,
+   then stays there for as long as its parent (the track) is on screen. */
+#view {
+  position: sticky;
+  top: 0;
+  height: 100vh;  /* exactly one screen tall */
+  overflow: hidden;  /* hide the parts of the layers that are off screen */
+  background: #cfe8ef;
+}
+
+.layer {
+  position: absolute;  /* all layers start in the same place, stacked */
+  left: 0;
+  top: 0;
+  height: 100%;  /* as tall as the screen */
+  width: auto;  /* as wide as the drawing needs */
+  max-width: none;
+
+  /* On a wide, low screen a drawing can end up narrower than its min-width
+     in the HTML. Then it is enlarged to fit, and these two lines say:
+     fill the space without squashing, and keep the ground in view. */
+  object-fit: cover;
+  object-position: left bottom;
+}
+
+.hint {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  margin: 0;
+  padding: 0.4rem 0.8rem;
+  background: #ffffff;
+  color: #1d1d1d;
+}

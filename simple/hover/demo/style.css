@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: Georgia, serif;  /* CHANGE THIS: your font */
+  background: #f2f0ff;
+  color: #1d1d1d;
+}
+
+main {
+  padding: 2rem;
+  text-align: center;
+}
+
+.words {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+/* How every word looks before anything happens. */
+.words button {
+  padding: 0.25rem 0.5rem;
+  font: inherit;
+  font-size: 2.5rem;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  /* The transition is what makes a hover smooth.
+     It says: when anything changes, take 0.3 seconds to get there.
+     CHANGE THIS: the time, and the easing word (ease, linear, ease-in, ease-out). */
+  transition: all 0.3s ease;
+}
+
+/* :hover = while the pointer is over it.
+   :focus-visible = while it is selected with the Tab key.
+   Writing both means keyboard users get the effect too. */
+
+/* 1. Gets bigger. scale(1) is normal size, scale(1.6) is 60% bigger. CHANGE THIS. */
+.grow:hover,
+.grow:focus-visible {
+  transform: scale(1.6);
+}
+
+/* 2. Changes colour. */
+.colour:hover,
+.colour:focus-visible {
+  color: #ffffff;
+  background: #e5383b;  /* CHANGE THIS */
+}
+
+/* 3. Starts blurred and becomes sharp. */
+.focus {
+  filter: blur(6px);
+}
+.focus:hover,
+.focus:focus-visible {
+  filter: blur(0);
+}
+
+/* 4. Tilts. A minus number turns it anticlockwise. CHANGE THIS. */
+.tilt:hover,
+.tilt:focus-visible {
+  transform: rotate(-12deg);
+}
+
+/* 5. Disappears when you reach for it. Opacity 1 is solid, 0 is invisible.
+   There is no :focus-visible here on purpose: a keyboard user must
+   always be able to see where they are on the page. */
+.vanish:hover {
+  opacity: 0;
+}
+
+/* 6. The same kind of change, but slow. Its own transition replaces the 0.3s above. */
+.words .slow {
+  transition: all 3s ease;
+}
+.slow:hover,
+.slow:focus-visible {
+  color: #e5383b;
+  letter-spacing: 0.5em;  /* the letters drift apart */
+}

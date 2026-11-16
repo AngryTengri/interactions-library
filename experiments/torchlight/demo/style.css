@@ -1,0 +1,46 @@
+/* The settings for the light. CHANGE THIS. */
+:root {
+  --size: 90px;  /* how far the full light reaches from the pointer */
+  --soft: 70px;  /* how wide the soft edge is. 0px gives a hard circle */
+  --darkness: 0.97;  /* 1 is pitch black. 0.8 lets shapes show faintly */
+
+  /* Where the light is. The JavaScript updates these two as the pointer moves.
+     They start in the middle of the screen. */
+  --x: 50%;
+  --y: 50%;
+}
+
+body {
+  margin: 0;
+  background: #000000;
+}
+
+#scene {
+  position: relative;  /* lets the dark layer be placed on top of the picture */
+  height: 100vh;  /* fills the screen */
+  overflow: hidden;
+  cursor: none;  /* hide the arrow: the light is the cursor now */
+  touch-action: none;  /* on a phone: a dragging finger moves the light, not the page */
+}
+
+#scene img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* fill the screen without squashing the picture */
+}
+
+.dark {
+  position: absolute;
+  inset: 0;  /* stretch to all four edges of the scene */
+
+  /* A radial gradient is a circle of colour that changes from the centre outwards.
+     Here: see-through at the pointer, still see-through at --size,
+     then fading to black over the distance --soft. */
+  background: radial-gradient(
+    circle at var(--x) var(--y),
+    transparent 0,
+    transparent var(--size),
+    rgba(0, 0, 0, var(--darkness)) calc(var(--size) + var(--soft))
+  );
+}

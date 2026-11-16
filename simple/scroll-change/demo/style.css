@@ -1,0 +1,55 @@
+/* --progress is a number the JavaScript keeps up to date:
+   0 at the top of the page, 1 at the bottom, 0.5 half way.
+   Everything below uses calc() to turn that number into a colour, a place or a size. */
+:root {
+  --progress: 0;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;  /* CHANGE THIS: your font */
+
+  /* hsl(colour, strength, lightness). The lightness goes from 85% (pale sky)
+     down to 10% (night) as --progress goes from 0 to 1.
+     CHANGE THIS: the first number is the colour, from 0 to 360. */
+  background: hsl(205, 70%, calc(85% - var(--progress) * 75%));
+}
+
+.bar {
+  position: fixed;  /* fixed = stays in place while the page scrolls */
+  top: 0;
+  left: 0;
+  height: 8px;
+  width: calc(var(--progress) * 100%);
+  background: #ff7b00;
+  z-index: 1;  /* in front of the text boxes */
+}
+
+.sun {
+  position: fixed;
+  right: 12%;
+  /* Starts 10vh from the top and travels 70vh down. CHANGE THIS: the 70vh. */
+  top: calc(10vh + var(--progress) * 70vh);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;  /* makes a square into a circle */
+  background: #ffd23f;
+}
+
+main {
+  position: relative;  /* keeps the text in front of the sun */
+  max-width: 24rem;
+  padding: 0 1.5rem;
+}
+
+main p {
+  margin: 0 0 70vh;
+  padding: 1rem;
+  font-size: 1.5rem;
+  background: #ffffff;
+  color: #1d1d1d;
+}
+
+main p:first-child {
+  margin-top: 30vh;
+}
