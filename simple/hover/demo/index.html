@@ -4,25 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hover</title>
+  <!-- Connects the CSS file, which says how the page looks. -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <main>
-    <p class="hint">Move the pointer over each word. On a phone, tap.</p>
+    <p>Move the pointer over each word. On a phone, tap.</p>
 
-    <!-- Each word is a button, so it can also be reached with the Tab key.
-         The class says which hover effect it gets. All the effects are in the CSS. -->
+    <!-- Each word has a class that names its effect. The effects are in the CSS.
+         The same classes work on other things too: a picture, a link, a heading. -->
     <div class="words">
-      <button class="grow">grow</button>
-      <button class="colour">colour</button>
-      <button class="focus">focus</button>
-      <button class="tilt">tilt</button>
-      <button class="vanish">vanish</button>
-      <button class="slow">slow</button>
+      <p class="grow">grow</p>
+      <p class="colour">colour</p>
+      <p class="sharpen">sharpen</p>
+      <p class="tilt">tilt</p>
+      <p class="slow">slow</p>
     </div>
   </main>
 
+  <!-- Connects the JavaScript file, which says how the page behaves.
+       It goes last, so the page is there before the script looks for things in it. -->
   <script src="script.js"></script>
 </body>
 </html>

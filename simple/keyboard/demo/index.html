@@ -4,24 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Keyboard</title>
+  <!-- Connects the CSS file, which says how the page looks. -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <main>
-    <p>Click here first, then press the arrow keys. This one needs a keyboard.</p>
-
-    <!-- Shows the name of the last key that was pressed. -->
-    <p>Last key: <span id="key-name">none yet</span></p>
-  </main>
+  <p>Click the page first, then press the arrow keys. This one needs a keyboard.</p>
 
   <!-- The thing the keys move.
-       CHANGE THIS: to use your own image, replace the line below with
+       CHANGE THIS: to use your own picture, replace the line below with
        <img id="walker" src="assets/your-file.png" alt="">
-       The id must stay "walker". Then, in the CSS, delete the background line
-       and change height to auto. -->
+       The id must stay "walker". Then, in the CSS, delete the background
+       line and change height to auto. -->
   <div id="walker"></div>
 
+  <!-- Connects the JavaScript file, which says how the page behaves.
+       It goes last, so the page is there before the script looks for things in it. -->
   <script src="script.js"></script>
 </body>
 </html>

@@ -4,24 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Image swap</title>
+  <!-- Connects the CSS file, which says how the page looks. -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <main>
-    <!-- The picture sits inside a button, so it can be clicked, tapped
-         or reached with the Tab key. -->
-    <button id="next" aria-label="Show the next picture">
-      <!-- CHANGE THIS: src is the first picture, the same file as the first
-           line of the list in the JavaScript.
-           alt describes the picture for people who cannot see it. -->
-      <img id="picture" src="assets/picture-1.svg" alt="Placeholder picture">
-    </button>
+    <!-- The picture. The id lets the JavaScript find it.
+         CHANGE THIS: src is the first picture. Use the same file as the
+         first one in the list in the JavaScript.
+         alt describes the picture for people who cannot see it. -->
+    <img id="picture" src="assets/picture-1.svg" alt="Placeholder picture">
 
-    <!-- A small counter. It is empty here: the JavaScript fills it in. -->
-    <p id="count"></p>
+    <p>Click the picture.</p>
   </main>
 
+  <!-- Connects the JavaScript file, which says how the page behaves.
+       It goes last, so the page is there before the script looks for things in it. -->
   <script src="script.js"></script>
 </body>
 </html>

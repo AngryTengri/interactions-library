@@ -1,30 +1,27 @@
-// Find everything that should be revealed.
+// Find everything with the class "reveal". querySelectorAll gives back a list.
 const items = document.querySelectorAll('.reveal');
 
-// An IntersectionObserver watches elements and tells us when they
-// come onto the screen and when they leave it.
-const observer = new IntersectionObserver(function (entries) {
+// A function is a set of steps with a name, so it can be run again and again.
+function reveal() {
 
-  // "entries" is the list of elements whose situation just changed.
-  entries.forEach(function (entry) {
+  // Do the same thing for each item in the list.
+  items.forEach(function (item) {
 
-    if (entry.isIntersecting) {
-      // It is on screen: add the class, and the CSS fades it in.
-      entry.target.classList.add('visible');
-    } else {
-      // It has left the screen: remove the class, so it can fade in again later.
-      // DELETE this line to make each thing appear once and then stay.
-      entry.target.classList.remove('visible');
+    // How far the top of this item is from the top of the screen, in pixels.
+    const top = item.getBoundingClientRect().top;
+
+    // window.innerHeight is the height of the screen.
+    // If the top of the item has come higher than 80% of the way down the screen,
+    // add the class "visible". The CSS then fades it in.
+    // CHANGE THIS: the 0.8. Try 1 (as soon as it appears) or 0.5 (half way up).
+    if (top < window.innerHeight * 0.8) {
+      item.classList.add('visible');
     }
   });
+}
 
-}, {
-  // How much of the element must be on screen before it counts.
-  // 0.5 is half of it. CHANGE THIS: a number from 0 to 1.
-  threshold: 0.5
-});
+// Run reveal every time the page scrolls.
+window.addEventListener('scroll', reveal);
 
-// Tell the observer to watch each item.
-items.forEach(function (item) {
-  observer.observe(item);
-});
+// And once now, for anything that is already on the screen when the page opens.
+reveal();

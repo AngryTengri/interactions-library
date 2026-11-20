@@ -6,40 +6,25 @@ body {
 }
 
 main {
-  padding: 0 1.5rem;
+  padding: 40vh 1.5rem;  /* space above the first line and below the last */
   text-align: center;
   font-size: 2rem;
 }
 
-/* Each line gets most of a screen to itself, so there is something to scroll through.
+/* A big gap after each line, so there is something to scroll through.
    vh means "percent of the screen height": 80vh is 80% of it. */
-.start,
-.reveal {
-  margin: 0;
-  min-height: 80vh;
-  display: grid;
-  place-items: center;
+main p {
+  margin: 0 0 80vh;
 }
 
-/* The starting state: invisible, and 40px lower than its final place.
-   CHANGE THIS: the 40px, or translateX to come in from the side. */
+/* How a "reveal" line starts: invisible. Opacity 1 is solid, 0 is invisible. */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease, transform 1s ease;  /* CHANGE THIS: the time */
+  transition: opacity 1s;  /* CHANGE THIS: how long the fade takes */
 }
 
-/* The end state. The JavaScript adds the class "visible"
-   when the element is on screen, and the transition does the rest. */
+/* The JavaScript adds the class "visible" when the line comes into view.
+   The transition above makes it fade in instead of popping in. */
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
-}
-
-/* Some people get dizzy from movement and ask their computer for less of it.
-   For them: keep the fade, drop the slide. */
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    transform: none;
-  }
 }

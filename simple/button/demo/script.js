@@ -6,10 +6,10 @@ const message = document.querySelector('#message');
 // Everything between the { } runs each time it is clicked.
 button.addEventListener('click', function () {
 
-  // Add the class "night" to the body if it is missing. Remove it if it is there.
+  // Add the class "night" to the body if it is not there. Remove it if it is.
   document.body.classList.toggle('night');
 
-  // Check which state the page is in now, and change the words to match.
+  // Ask: does the body have the class "night" now? Then change the words to match.
   if (document.body.classList.contains('night')) {
     message.textContent = 'It is night.';  // CHANGE THIS
     button.textContent = 'Turn on the light';  // CHANGE THIS

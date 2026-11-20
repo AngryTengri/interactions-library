@@ -4,26 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Scroll change</title>
+  <!-- Connects the CSS file, which says how the page looks. -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- A bar across the top that grows as you scroll. -->
-  <div class="bar"></div>
-
-  <!-- The sun. It stays fixed on the screen and the scroll moves it. -->
-  <div class="sun"></div>
+  <!-- The sun. The CSS fixes it to the screen, so it stays put while the page scrolls. -->
+  <div id="sun"></div>
 
   <!-- The text is only here to make the page long enough to scroll.
        CHANGE THIS: replace it with your own content. -->
   <main>
-    <p>Morning. Scroll down.</p>
-    <p>Midday. Placeholder text.</p>
-    <p>Afternoon. Placeholder text.</p>
-    <p>Evening. Placeholder text.</p>
-    <p>Night.</p>
+    <p>Day. Scroll down.</p>
+    <p>Keep going.</p>
+    <p>Night. Scroll back up.</p>
   </main>
 
+  <!-- Connects the JavaScript file, which says how the page behaves.
+       It goes last, so the page is there before the script looks for things in it. -->
   <script src="script.js"></script>
 </body>
 </html>

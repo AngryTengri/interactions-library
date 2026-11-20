@@ -1,44 +1,30 @@
-/* The page in its normal state: day. */
+/* The page as it starts: day. */
 body {
   margin: 0;
+  /* These three lines put everything in the middle of the screen. */
   min-height: 100vh;
   display: grid;
-  place-items: center;  /* puts the content in the middle */
+  place-items: center;
+  text-align: center;
   font-family: Georgia, serif;  /* CHANGE THIS: your font */
-  background: #ffe37a;  /* CHANGE THIS: day colour */
+  background: #ffe37a;  /* CHANGE THIS: the day colour */
   color: #1d1d1d;
-  transition: background 1s, color 1s;  /* CHANGE THIS: the change takes 1 second instead of snapping */
+  /* When the colours change, take 1 second instead of jumping. CHANGE THIS: the time. */
+  transition: background 1s, color 1s;
 }
 
-/* The page when the body has the class "night".
+/* The page at night: when the body has the class "night".
    The JavaScript adds and removes this class. */
 body.night {
-  background: #10162f;  /* CHANGE THIS: night colour */
+  background: #10162f;  /* CHANGE THIS: the night colour */
   color: #f2f2f2;
 }
 
-main {
-  text-align: center;
-}
-
 #message {
-  margin: 0 0 1.5rem;
   font-size: 2.5rem;
 }
 
 button {
-  padding: 0.75rem 1.5rem;
-  font: inherit;  /* use the same font as the page */
-  font-size: 1.125rem;
-  color: inherit;
-  background: transparent;
-  border: 2px solid currentColor;  /* currentColor = the text colour */
-  border-radius: 999px;
-  cursor: pointer;
-}
-
-/* Feedback: the button reacts before it is pressed. */
-button:hover,
-button:focus-visible {
-  background: rgba(128, 128, 128, 0.25);
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
 }

@@ -1,36 +1,29 @@
 // The list of pictures, in the order they appear.
-// CHANGE THIS: use your own file names. Add or remove lines to change how many there are.
+// CHANGE THIS: your own file names. Add or remove lines to change how many there are.
 const pictures = [
   'assets/picture-1.svg',
   'assets/picture-2.svg',
   'assets/picture-3.svg'
 ];
 
-const button = document.querySelector('#next');
+// Find the picture on the page, using its id.
 const picture = document.querySelector('#picture');
-const count = document.querySelector('#count');
 
-// Which picture is showing. Lists start counting at 0, so 0 is the first one.
-let current = 0;
+// Which picture is showing. A list starts counting at 0, so 0 is the first one.
+let number = 0;
 
-// Put the current picture on the page, and update the counter.
-function show() {
-  picture.src = pictures[current];
-  count.textContent = (current + 1) + ' of ' + pictures.length;
-}
+// Each time the picture is clicked ...
+picture.addEventListener('click', function () {
 
-button.addEventListener('click', function () {
-
-  // Move on by one.
-  current = current + 1;
+  // ... move on by one.
+  number = number + 1;
 
   // After the last picture, go back to the first.
-  if (current === pictures.length) {
-    current = 0;
+  // === asks: are these two the same?
+  if (number === pictures.length) {
+    number = 0;
   }
 
-  show();
+  // Show the picture with that number from the list.
+  picture.src = pictures[number];
 });
-
-// Run it once at the start, so the counter is right before the first click.
-show();

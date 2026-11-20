@@ -4,21 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Drag</title>
+  <!-- Connects the CSS file, which says how the page looks. -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <p class="hint">Pick up the pieces and move them.</p>
+  <p>Pick up the pieces and move them.</p>
 
-  <!-- Each piece is an image with the class "piece".
-       left and top say where it starts, measured from the top left corner of the page.
-       draggable="false" switches off the browser's own image dragging, so ours can work.
-       CHANGE THIS: your own cut-out images (PNG files with transparent backgrounds),
-       their descriptions in alt, and where they start. Copy a line to add a piece. -->
-  <img class="piece" src="assets/piece-1.svg" alt="Placeholder piece 1" draggable="false" style="left: 8%; top: 25%;">
-  <img class="piece" src="assets/piece-2.svg" alt="Placeholder piece 2" draggable="false" style="left: 38%; top: 40%;">
-  <img class="piece" src="assets/piece-3.svg" alt="Placeholder piece 3" draggable="false" style="left: 65%; top: 20%;">
+  <!-- Each piece is a picture with the class "piece".
+       left and top say where the middle of the piece starts, measured from
+       the top left corner of the page.
+       draggable="false" switches off the browser's own picture dragging, so ours can work.
+       CHANGE THIS: your own cut-out pictures (PNG files with transparent backgrounds),
+       a description of each in alt, and where they start. Copy a line to add a piece. -->
+  <img class="piece" src="assets/piece-1.svg" alt="Placeholder piece 1" draggable="false" style="left: 20%; top: 40%;">
+  <img class="piece" src="assets/piece-2.svg" alt="Placeholder piece 2" draggable="false" style="left: 50%; top: 65%;">
+  <img class="piece" src="assets/piece-3.svg" alt="Placeholder piece 3" draggable="false" style="left: 80%; top: 40%;">
 
+  <!-- Connects the JavaScript file, which says how the page behaves.
+       It goes last, so the page is there before the script looks for things in it. -->
   <script src="script.js"></script>
 </body>
 </html>

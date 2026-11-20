@@ -1,29 +1,25 @@
 body {
   margin: 0;
   min-height: 100vh;
-  overflow: hidden;  /* no scroll bars */
+  overflow: hidden;  /* no scroll bars, so the arrow keys do not scroll the page */
   font-family: Georgia, serif;  /* CHANGE THIS: your font */
   background: #e9f5db;
   color: #1d1d1d;
 }
 
-main {
-  padding: 1rem 1.5rem;
-}
-
-main p {
-  margin: 0 0 0.5rem;
+p {
+  margin: 1rem 1.5rem;
 }
 
 #walker {
-  /* absolute = placed by left and top, which the JavaScript changes. */
+  /* absolute = placed by its left and top numbers, which the JavaScript changes. */
   position: absolute;
   left: 100px;  /* CHANGE THIS: where it starts */
   top: 120px;
-  width: 50px;  /* CHANGE THIS: size */
+  width: 50px;  /* CHANGE THIS: the size */
   height: 50px;
-  background: #386641;  /* CHANGE THIS: colour */
+  background: #386641;  /* CHANGE THIS: the colour */
 
   /* Each step glides for 0.1 seconds instead of jumping. */
-  transition: left 0.1s linear, top 0.1s linear;
+  transition: left 0.1s, top 0.1s;
 }

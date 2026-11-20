@@ -22,31 +22,31 @@ window.DEMOS = [
       'The words on the button and in the message.',
       'The length of the fade: the 1s in the transition line.'
     ],
-    prompt: 'Add a second button that switches the page to a third state, dusk, with its own colours and message. Explain each line you add.'
+    prompt: 'On my page, when the button is clicked, also change my picture from day.jpg to night.jpg, and back again on the next click. Explain each line you add.'
   },
   {
     slug: 'hover',
     tab: 'simple',
     title: 'Hover',
-    summary: 'Six words that each react differently when the pointer is over them. It needs no JavaScript.',
-    terms: [':hover', 'transition', ':focus-visible'],
+    summary: 'Five words that each react when the pointer is over them. It needs no JavaScript.',
+    terms: [':hover', 'transition', 'transform'],
     change: [
-      'The time in a transition, from 0.3s up to 3s.',
+      'The time in a transition: try 1s or 3s.',
       'The numbers inside scale() and rotate().',
-      'The easing word: try linear, ease-in or ease-out.'
+      'Give one of your own pictures a class from the CSS, for example class="grow".'
     ],
-    prompt: 'Give my image the same hover effect as the word "focus": blurred at first, sharp when the pointer is over it. Use only CSS and explain the transition line.'
+    prompt: 'Give my picture the "sharpen" hover effect from this example, and make the change take 2 seconds. Explain the transition line.'
   },
   {
     slug: 'image-swap',
     tab: 'simple',
     title: 'Image swap',
     summary: 'Each click on the picture shows the next one in a list.',
-    terms: ['click event', 'array', 'img.src'],
+    terms: ['click event', 'list', 'src'],
     change: [
       'The file names in the list, to your own pictures.',
-      'The number of pictures: add or remove lines in the list.',
-      'The trigger: swap on hover by changing "click" to "pointerenter".'
+      'How many pictures: add or remove lines in the list.',
+      'The first picture in the HTML, so it matches the first one in the list.'
     ],
     prompt: 'Make the picture fade out, change, then fade back in each time it is clicked, instead of changing instantly. Keep my list of file names.'
   },
@@ -54,62 +54,62 @@ window.DEMOS = [
     slug: 'slider',
     tab: 'simple',
     title: 'Slider',
-    summary: 'A slider blurs and sharpens a picture.',
-    terms: ['input event', 'CSS variable', 'filter'],
+    summary: 'A slider blurs a picture.',
+    terms: ['input event', 'slider.value', 'style.filter'],
     change: [
-      'The min, max and value of the slider in the HTML.',
-      'What the slider controls: swap blur for hue-rotate, brightness or grayscale. The comments say which unit and range each needs.',
+      'min and max on the slider in the HTML.',
+      'What the slider controls: the JavaScript has two other lines to try, for brightness and for rotation.',
       'The picture, to one of your own.'
     ],
-    prompt: 'Add a second slider that controls how see-through the picture is, using a second CSS variable. Explain how the slider value reaches the CSS.'
+    prompt: 'Add a second slider under the first one that makes my picture see-through, using opacity. Explain how the slider number reaches the picture.'
   },
   {
     slug: 'show-hide',
     tab: 'simple',
     title: 'Show and hide',
-    summary: 'Click a title to open the text hidden under it.',
-    terms: ['hidden attribute', 'querySelectorAll', 'aria-expanded'],
+    summary: 'A button shows a hidden text. A second click hides it again.',
+    terms: ['click event', 'classList.toggle', 'display: none'],
     change: [
-      'The titles and the hidden text.',
-      'What is hidden: put an image inside instead of a sentence.',
-      'The plus and minus signs in the CSS.'
+      'The words on the button and the hidden text.',
+      'What is hidden: a picture instead of text, with the same id and class.',
+      'What starts hidden: take class="hidden" off, and the text starts visible.'
     ],
-    prompt: 'Change this so that opening one title closes the others, so only one text is visible at a time. Explain what you changed in the loop.'
+    prompt: 'Add two more buttons to my page, each showing and hiding its own memory. Explain what has to be different for each one.'
   },
   {
     slug: 'scroll-reveal',
     tab: 'simple',
     title: 'Scroll reveal',
-    summary: 'Lines of text fade in when they scroll into view, and fade out when they leave.',
-    terms: ['IntersectionObserver', 'classList', 'transition'],
+    summary: 'Lines of text fade in as they scroll into view.',
+    terms: ['scroll event', 'getBoundingClientRect', 'opacity'],
     change: [
-      'The transition time in the CSS.',
-      'The threshold in the JavaScript: how much must be on screen before it appears.',
-      'The starting state: slide in from the side by changing translateY to translateX.'
+      'The fade time: the 1s in the CSS.',
+      'The 0.8 in the JavaScript: how far up the screen a line comes before it appears.',
+      'What fades in: give one of your pictures class="reveal".'
     ],
-    prompt: 'Make each line appear only once and stay visible, instead of fading out again when it leaves the screen. Tell me which line to delete or change.'
+    prompt: 'Make each line also slide up a little as it fades in. Only change the CSS, and explain what you add.'
   },
   {
     slug: 'scroll-change',
     tab: 'simple',
     title: 'Scroll change',
-    summary: 'Scrolling down turns day into night and lowers the sun.',
-    terms: ['scroll event', 'CSS variable', 'calc()'],
+    summary: 'Scrolling past a point turns day into night, and the sun sets.',
+    terms: ['scroll event', 'scrollY', 'classList'],
     change: [
-      'The colour numbers in the body background.',
-      'How far the sun travels: the 70vh in the CSS.',
-      'What the scroll controls: try the size or the colour of the sun.'
+      'The point where it changes: changeAt at the top of the JavaScript, in pixels.',
+      'The day and night colours in the CSS.',
+      'Where the sun ends up: the 80vh in the CSS.'
     ],
-    prompt: 'Use the same --progress value to slowly rotate my image a full turn as the visitor scrolls from top to bottom. Explain the calc() you write.'
+    prompt: 'Add a dusk between day and night: the page turns orange after 200 pixels of scrolling and dark after 600. Explain how the two points work together.'
   },
   {
     slug: 'animation',
     tab: 'simple',
     title: 'Animation',
-    summary: 'Two shapes that move by themselves forever, and a button that pauses them.',
+    summary: 'Two shapes that move by themselves, forever. It needs no JavaScript.',
     terms: ['@keyframes', 'animation', 'prefers-reduced-motion'],
     change: [
-      'The duration of each animation.',
+      'The duration of each animation: the 4s and the 1.5s.',
       'The values inside the keyframes.',
       'The easing: swap ease-in-out for linear and see how the feeling changes.'
     ],
@@ -119,8 +119,8 @@ window.DEMOS = [
     slug: 'sound',
     tab: 'simple',
     title: 'Sound',
-    summary: 'One button plays a short sound. Another starts and stops a loop.',
-    terms: ['audio element', 'play()', 'loop'],
+    summary: 'One button rings a bell. Two more start and stop a loop.',
+    terms: ['audio element', 'play()', 'pause()'],
     change: [
       'The two sound files, to your own recordings.',
       'The volume number: 0 is silent, 1 is full.',
@@ -133,39 +133,39 @@ window.DEMOS = [
     tab: 'simple',
     title: 'Drag',
     summary: 'Pick up the pieces and move them around the page. It works with a mouse or a finger.',
-    terms: ['pointer events', 'position: absolute', 'z-index'],
+    terms: ['pointer events', 'position: absolute', 'clientX and clientY'],
     change: [
-      'The pieces, to your own cut-out images.',
-      'Where each piece starts: the left and top numbers in the HTML.',
-      'The look of a piece while it is held, in the .held rule.'
+      'The pieces, to your own cut-out pictures.',
+      'Where each piece starts: left and top in the HTML.',
+      'The size of the pieces: width in the CSS.'
     ],
-    prompt: 'Make each piece remember where it was dropped, so the arrangement is still there when the page is reloaded. Use localStorage and explain how it saves and loads.'
+    prompt: 'Make the piece I pick up come to the front, in front of the other pieces. Explain what z-index does.'
   },
   {
     slug: 'cursor-follow',
     tab: 'simple',
     title: 'Cursor follow',
-    summary: 'A shape follows the pointer with a small delay.',
-    terms: ['pointermove', 'transform', 'transition'],
+    summary: 'A circle follows the pointer, a little behind it.',
+    terms: ['pointermove', 'clientX and clientY', 'transition'],
     change: [
-      'The delay: the 0.2s transition in the CSS.',
-      'The size, colour and shape of the follower.',
-      'The follower itself: use one of your own images.'
+      'The delay: the 0.2s in the transition line.',
+      'The size and colour of the follower.',
+      'The follower itself: the HTML says how to use one of your own pictures.'
     ],
-    prompt: 'Replace the circle with my image eye.png and hide the normal cursor, so the image becomes the cursor. Explain what pointer-events: none does.'
+    prompt: 'Hide the normal cursor on my page, so that my follower picture becomes the cursor. Explain the line you add.'
   },
   {
     slug: 'keyboard',
     tab: 'simple',
     title: 'Keyboard',
-    summary: 'The arrow keys move a square around the page, and the page names every key you press.',
-    terms: ['keydown event', 'event.key', 'position'],
+    summary: 'The arrow keys move a square around the page.',
+    terms: ['keydown event', 'event.key', 'style.left'],
     change: [
-      'The step size: how far one key press moves.',
-      'The keys: use W, A, S and D instead of the arrows.',
-      'The square, to one of your own drawings.'
+      'The step: how far one key press moves.',
+      'The keys: for example a, d, w and s instead of the arrows.',
+      'The square, to one of your own drawings: the HTML says how.'
     ],
-    prompt: 'When the square reaches the right edge of the screen, go to the page room-2.html. Explain how you check for the edge.'
+    prompt: 'Stop the square at the edges of the window, so it cannot leave the screen. Explain how you check for the edge.'
   },
 
   /* ---------- Experiments ---------- */

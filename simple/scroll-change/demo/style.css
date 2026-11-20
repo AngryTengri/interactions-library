@@ -1,55 +1,43 @@
-/* --progress is a number the JavaScript keeps up to date:
-   0 at the top of the page, 1 at the bottom, 0.5 half way.
-   Everything below uses calc() to turn that number into a colour, a place or a size. */
-:root {
-  --progress: 0;
-}
-
+/* The page as it starts: day. */
 body {
   margin: 0;
   font-family: Georgia, serif;  /* CHANGE THIS: your font */
-
-  /* hsl(colour, strength, lightness). The lightness goes from 85% (pale sky)
-     down to 10% (night) as --progress goes from 0 to 1.
-     CHANGE THIS: the first number is the colour, from 0 to 360. */
-  background: hsl(205, 70%, calc(85% - var(--progress) * 75%));
+  background: #9fd3f5;  /* CHANGE THIS: the day colour */
+  color: #1d1d1d;
+  transition: background 2s, color 2s;  /* the change takes 2 seconds */
 }
 
-.bar {
-  position: fixed;  /* fixed = stays in place while the page scrolls */
-  top: 0;
-  left: 0;
-  height: 8px;
-  width: calc(var(--progress) * 100%);
-  background: #ff7b00;
-  z-index: 1;  /* in front of the text boxes */
+/* The page at night: when the body has the class "night".
+   The JavaScript adds and removes this class. */
+body.night {
+  background: #10162f;  /* CHANGE THIS: the night colour */
+  color: #f2f2f2;
 }
 
-.sun {
-  position: fixed;
-  right: 12%;
-  /* Starts 10vh from the top and travels 70vh down. CHANGE THIS: the 70vh. */
-  top: calc(10vh + var(--progress) * 70vh);
+#sun {
+  position: fixed;  /* stays in the same place on the screen while the page scrolls */
+  top: 10vh;  /* 10% of the screen height down from the top */
+  right: 10%;
   width: 90px;
   height: 90px;
-  border-radius: 50%;  /* makes a square into a circle */
+  border-radius: 50%;  /* turns the square into a circle */
   background: #ffd23f;
+  transition: top 2s;  /* when it moves, it takes 2 seconds */
+}
+
+/* At night the sun sets: it moves down near the bottom of the screen.
+   CHANGE THIS: the 80vh. */
+body.night #sun {
+  top: 80vh;
 }
 
 main {
-  position: relative;  /* keeps the text in front of the sun */
-  max-width: 24rem;
-  padding: 0 1.5rem;
-}
-
-main p {
-  margin: 0 0 70vh;
-  padding: 1rem;
+  max-width: 50%;  /* keeps the text clear of the sun */
+  padding: 30vh 1.5rem;
   font-size: 1.5rem;
-  background: #ffffff;
-  color: #1d1d1d;
 }
 
-main p:first-child {
-  margin-top: 30vh;
+/* A big gap after each line, so there is something to scroll through. */
+main p {
+  margin: 0 0 80vh;
 }

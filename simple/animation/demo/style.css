@@ -1,28 +1,23 @@
 body {
   margin: 0;
+  /* These three lines put everything in the middle of the screen. */
   min-height: 100vh;
   display: grid;
   place-items: center;
-  font-family: Georgia, serif;  /* CHANGE THIS: your font */
   background: #f3efe0;
-  color: #1d1d1d;
 }
 
+/* Puts the two shapes side by side, with space between them. */
 main {
-  text-align: center;
-}
-
-.stage {
   display: flex;
-  gap: 5rem;
   align-items: center;
-  justify-content: center;
-  height: 240px;
+  gap: 5rem;
 }
 
 /* ---- Animation 1: float ---- */
 
-/* Keyframes describe the movement: where it starts (from) and where it ends (to).
+/* @keyframes describes a movement and gives it a name, here "float":
+   where it starts (from) and where it ends (to).
    CHANGE THIS: the distance and the angle. */
 @keyframes float {
   from { transform: translateY(40px) rotate(-8deg); }
@@ -34,17 +29,17 @@ main {
   height: 90px;
   background: #3a86ff;
 
-  /* Play the keyframes called "float":
-     4s          one journey takes 4 seconds      CHANGE THIS
-     ease-in-out start slow, speed up, end slow   CHANGE THIS: try linear
-     infinite    never stop
-     alternate   go there, then come back, instead of jumping to the start */
+  /* Play the movement called "float":
+     4s           one journey takes 4 seconds              CHANGE THIS
+     ease-in-out  start slow, speed up, end slow           CHANGE THIS: try linear
+     infinite     never stop
+     alternate    go there, then come back, instead of jumping back to the start */
   animation: float 4s ease-in-out infinite alternate;
 }
 
 /* ---- Animation 2: pulse ---- */
 
-/* Keyframes can have steps in between, written as percentages of the time. */
+/* A movement can have steps in between, written as percentages of the time. */
 @keyframes pulse {
   0%   { transform: scale(1);   opacity: 1; }
   50%  { transform: scale(1.5); opacity: 0.4; }
@@ -54,34 +49,16 @@ main {
 .pulse {
   width: 70px;
   height: 70px;
-  border-radius: 50%;
+  border-radius: 50%;  /* turns the square into a circle */
   background: #ef476f;
   animation: pulse 1.5s ease-in-out infinite;  /* CHANGE THIS: the 1.5s */
 }
 
-/* When the body has the class "paused", freeze both animations where they are.
-   The JavaScript adds and removes the class. */
-.paused .float,
-.paused .pulse {
-  animation-play-state: paused;
-}
-
-/* Some people ask their computer for less movement. Respect that. */
+/* Some people get dizzy from movement and ask their computer for less of it.
+   For them, the shapes stand still. */
 @media (prefers-reduced-motion: reduce) {
   .float,
   .pulse {
     animation: none;
   }
-}
-
-button {
-  margin-top: 1.5rem;
-  padding: 0.6rem 1.4rem;
-  font: inherit;
-  font-size: 1.125rem;
-  color: inherit;
-  background: transparent;
-  border: 2px solid currentColor;
-  border-radius: 999px;
-  cursor: pointer;
 }
